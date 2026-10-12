@@ -1,0 +1,84 @@
+[
+  {
+    "config": "in_order",
+    "params": {
+      "OOO": 0
+    },
+    "passed": true,
+    "check_problems": [
+      "0"
+    ],
+    "no_latches": true,
+    "rtl_sha256": {
+      "core.sv": "2433394988d85ef69b096e1042d623b6622bc45b583774e5b8d2c02bf8526377",
+      "data_cache.sv": "6a50e3795fde1ff8629e7087fcbdb0236812d73c6e7642dc439a391853dba6c9",
+      "picorv32_reference_system.sv": "be1e2658cd819b190b8e5cebe983b9e927fe8e39ea4bf9de626d44f7da3931be",
+      "processor_system.sv": "a0750a9e19d574990d5df014f56891b767825ae8c42c9b87466dcb81cde319c7"
+    },
+    "log": "results/synthesis_in_order.log",
+    "verification": "Yosys read_verilog + hierarchy + proc + opt + check -assert + no $dlatch"
+  },
+  {
+    "config": "out_of_order",
+    "params": {
+      "OOO": 1
+    },
+    "passed": true,
+    "check_problems": [
+      "0"
+    ],
+    "no_latches": true,
+    "rtl_sha256": {
+      "core.sv": "2433394988d85ef69b096e1042d623b6622bc45b583774e5b8d2c02bf8526377",
+      "data_cache.sv": "6a50e3795fde1ff8629e7087fcbdb0236812d73c6e7642dc439a391853dba6c9",
+      "picorv32_reference_system.sv": "be1e2658cd819b190b8e5cebe983b9e927fe8e39ea4bf9de626d44f7da3931be",
+      "processor_system.sv": "a0750a9e19d574990d5df014f56891b767825ae8c42c9b87466dcb81cde319c7"
+    },
+    "log": "results/synthesis_out_of_order.log",
+    "verification": "Yosys read_verilog + hierarchy + proc + opt + check -assert + no $dlatch"
+  },
+  {
+    "config": "all_options",
+    "params": {
+      "OOO": 1,
+      "MEM_SPEC": 1,
+      "REUSE": 1,
+      "VALUE_PRED": 1,
+      "PREDICTOR": 5,
+      "ENABLE_MUL": 1
+    },
+    "passed": true,
+    "check_problems": [
+      "0"
+    ],
+    "no_latches": true,
+    "rtl_sha256": {
+      "core.sv": "2433394988d85ef69b096e1042d623b6622bc45b583774e5b8d2c02bf8526377",
+      "data_cache.sv": "6a50e3795fde1ff8629e7087fcbdb0236812d73c6e7642dc439a391853dba6c9",
+      "picorv32_reference_system.sv": "be1e2658cd819b190b8e5cebe983b9e927fe8e39ea4bf9de626d44f7da3931be",
+      "processor_system.sv": "a0750a9e19d574990d5df014f56891b767825ae8c42c9b87466dcb81cde319c7"
+    },
+    "log": "results/synthesis_all_options.log",
+    "verification": "Yosys read_verilog + hierarchy + proc + opt + check -assert + no $dlatch"
+  },
+  {
+    "config": "out_of_order_zmmul",
+    "params": {
+      "OOO": 1,
+      "ENABLE_MUL": 1
+    },
+    "passed": true,
+    "check_problems": [
+      "0"
+    ],
+    "no_latches": true,
+    "rtl_sha256": {
+      "core.sv": "2433394988d85ef69b096e1042d623b6622bc45b583774e5b8d2c02bf8526377",
+      "data_cache.sv": "6a50e3795fde1ff8629e7087fcbdb0236812d73c6e7642dc439a391853dba6c9",
+      "picorv32_reference_system.sv": "be1e2658cd819b190b8e5cebe983b9e927fe8e39ea4bf9de626d44f7da3931be",
+      "processor_system.sv": "a0750a9e19d574990d5df014f56891b767825ae8c42c9b87466dcb81cde319c7"
+    },
+    "log": "results/synthesis_out_of_order_zmmul.log",
+    "verification": "Yosys read_verilog + hierarchy + proc + opt + check -assert + no $dlatch"
+  }
+]

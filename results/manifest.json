@@ -1,0 +1,22 @@
+{
+  "isa": "RV32I (optional Zmmul)",
+  "rtl_sha256": {
+    "core.sv": "2433394988d85ef69b096e1042d623b6622bc45b583774e5b8d2c02bf8526377",
+    "data_cache.sv": "6a50e3795fde1ff8629e7087fcbdb0236812d73c6e7642dc439a391853dba6c9",
+    "picorv32_reference_system.sv": "be1e2658cd819b190b8e5cebe983b9e927fe8e39ea4bf9de626d44f7da3931be",
+    "processor_system.sv": "a0750a9e19d574990d5df014f56891b767825ae8c42c9b87466dcb81cde319c7"
+  },
+  "rtl_runs": 269,
+  "retired_instructions_checked": 8113,
+  "rv32i_instruction_forms_exercised": 40,
+  "pico_cross_checks": 42,
+  "pico_upstream_commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+  "synthesized_configs": [
+    "in_order",
+    "out_of_order",
+    "all_options",
+    "out_of_order_zmmul"
+  ],
+  "validation": "All 32 architectural registers, all 256 RAM words, ordered retirement PCs, exception PC/cause/value and per-cycle invariants vs independent RV32I interpreter; successful program state vs unmodified PicoRV32.",
+  "limitations": "Directed/seeded tests, not exhaustive or certified ISA compliance; no formal proof or FPGA timing/placement/routing; selected book mechanisms."
+}
