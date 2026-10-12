@@ -1,0 +1,45 @@
+name: RTL verification
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install simulator
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Check RTL against independent interpreter
+        run: python run_lab.py --waves
+      - name: Cross-check unmodified PicoRV32
+        run: python run_picorv32.py
+      - name: Build measured report
+        run: python build_report.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: measured-results
+          path: |
+            results/
+            report.html
+  structural-synthesis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install Yosys
+        run: sudo apt-get update && sudo apt-get install -y yosys
+      - name: Check structure and latches
+        run: python synthesize.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: structural-synthesis-results
+          path: |
+            results/synthesis_*.log
+            results/synthesis_summary.json
